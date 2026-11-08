@@ -12,8 +12,10 @@ Todo push na branch configurada na Cloudflare (Workers Builds) publica sozinho:
 | Pasta | O que é |
 |---|---|
 | `public/` | O site pronto (HTML/CSS/JS estáticos). É o que vai ao ar. |
-| `public/vira-stack.css` e `.js` | Home em camadas (seções empilhando ao rolar) + índice de camadas. |
-| `tools/patch.py` | Reaplica contatos e o efeito sobre uma cópia nova do site, se precisar regenerar. |
+| `public/vira-stack.css` e `.js` | Cartões da construção: as 4 etapas empilham ao rolar (Home e /processo), referência Mercado Pago. |
+| `tools/patch.py` | Reaplica contatos e injeta o CSS/JS sobre uma cópia nova do site. |
+| `tools/home.py` | Reordena a Home (HTML + payload do React juntos). Rodar depois do patch.py. |
+| `tools/flight.py` | Leitura/escrita do payload do React (RSC) usado pelos dois scripts. |
 | `wrangler.jsonc` | Configuração do Worker. |
 
 ## Mudanças rápidas
@@ -27,3 +29,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 ## Histórico
 - 08/11/2026 — e-mail thiago@virastudio.uk, Instagram @virastudiobr, Home em camadas.
 - 08/11/2026 — deploy automático ligado (Workers Builds, raiz `site`).
+- 08/11/2026 — Home reordenada (Soluções → Cases → Como construímos → Tecnologia → Investimento → Dúvidas → Contato); saem Manifesto, Como pensamos e Sobre (seguem em /processo e /sobre). Empilhamento só nas 4 etapas.
