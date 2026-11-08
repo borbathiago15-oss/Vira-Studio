@@ -13,7 +13,7 @@ OLD_MAIL = 'virastudiocontato@gmail.com'
 NEW_MAIL = 'thiago@virastudio.uk'
 IG_URL = 'https://www.instagram.com/virastudiobr'
 IG_HANDLE = '@virastudiobr'
-VERSION = '20261108b'
+VERSION = '20261108c'
 
 report = {}
 
@@ -114,7 +114,8 @@ for f in DST.rglob('*'):
         # --- Empilhamento: CSS + JS em todas as páginas (o script só ativa na Home)
         if f.suffix == '.html' and '</head>' in t and 'vira-stack.js' not in t:
             tag = (f'<link rel="stylesheet" href="/vira-stack.css?v={VERSION}"/>'
-                   f'<script src="/vira-stack.js?v={VERSION}" defer=""></script>')
+                   f'<script src="/vira-stack.js?v={VERSION}" defer=""></script>'
+                   f'<script src="/vira-hud.js?v={VERSION}" defer=""></script>')
             t = t.replace('</head>', tag + '</head>', 1)
             bump('stack_injected')
 

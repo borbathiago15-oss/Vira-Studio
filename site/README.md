@@ -15,6 +15,8 @@ Todo push na branch configurada na Cloudflare (Workers Builds) publica sozinho:
 | `public/vira-stack.css` e `.js` | Cartões da construção: as 4 etapas empilham ao rolar (Home e /processo), referência Mercado Pago. |
 | `tools/patch.py` | Reaplica contatos e injeta o CSS/JS sobre uma cópia nova do site. |
 | `tools/home.py` | Reordena a Home (HTML + payload do React juntos). Rodar depois do patch.py. |
+| `public/vira-hud.js` | Animação HUD (SVG, linha do tempo determinística): topo da Home ("sistema") e Tecnologia + IA ("ia"). |
+| `tools/hud-video.html` + `tools/render.py` | Gera os vídeos MP4 da mesma animação (9:16 e 4:5), quadro a quadro. |
 | `tools/flight.py` | Leitura/escrita do payload do React (RSC) usado pelos dois scripts. |
 | `wrangler.jsonc` | Configuração do Worker. |
 
@@ -30,3 +32,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 - 08/11/2026 — e-mail thiago@virastudio.uk, Instagram @virastudiobr, Home em camadas.
 - 08/11/2026 — deploy automático ligado (Workers Builds, raiz `site`).
 - 08/11/2026 — Home reordenada (Soluções → Cases → Como construímos → Tecnologia → Investimento → Dúvidas → Contato); saem Manifesto, Como pensamos e Sobre (seguem em /processo e /sobre). Empilhamento só nas 4 etapas.
+- 08/11/2026 — Animação HUD no topo (substitui a parede de projetos) e em Tecnologia + IA; vídeos Reels/LinkedIn gerados do mesmo código.

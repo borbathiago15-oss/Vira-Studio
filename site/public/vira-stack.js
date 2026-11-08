@@ -60,7 +60,7 @@
       new MutationObserver(function () {
         clearTimeout(t);
         t = setTimeout(scan, 120);
-      }).observe(document.body, { childList: true, subtree: true });
+      }).observe(document.getElementById('conteudo') || document.body, { childList: true });
     }
   }
 

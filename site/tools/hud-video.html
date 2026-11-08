@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>VIRA Studio · vídeo HUD</title>
+<link rel="stylesheet" href="/_next/static/css/05aa3d88a07c2b12.css">
+<style>
+  html, body { margin: 0; background: #0d0d0f; }
+  #stage {
+    position: relative; overflow: hidden; background: #0d0d0f; color: #f5f5f5;
+    font-family: Montserrat, system-ui, sans-serif;
+  }
+  #stage::before { /* vinheta dourada */
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(70% 45% at 50% 22%, rgba(212,175,106,.16), transparent 70%),
+                radial-gradient(90% 60% at 50% 110%, rgba(212,175,106,.10), transparent 70%);
+  }
+  .chip {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 14px; align-items: center; white-space: nowrap;
+    padding: 12px 26px; border-radius: 999px;
+    border: 1.5px solid rgba(212,175,106,.55); background: rgba(13,13,15,.7);
+    font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: .18em;
+    text-transform: uppercase; color: #d4af6a;
+  }
+  .chip i { width: 10px; height: 10px; border-radius: 50%; background: #d4af6a; box-shadow: 0 0 14px #d4af6a; }
+  #panel { position: absolute; left: 50%; transform: translateX(-50%); }
+  .head { position: absolute; left: 70px; right: 70px; }
+  .head h1 {
+    margin: 0; font-weight: 900; text-transform: uppercase; line-height: .98; letter-spacing: -.01em;
+  }
+  .head h1 span { display: block; }
+  .head h1 .g { color: #d4af6a; text-shadow: 0 0 32px rgba(212,175,106,.45); }
+  .head p { margin: 26px 0 0; font-family: "JetBrains Mono", monospace; color: #a3a3a9; letter-spacing: .12em; text-transform: uppercase; }
+  .end { position: absolute; left: 70px; right: 70px; display: flex; align-items: center; justify-content: space-between; }
+  .end img { height: 84px; width: auto; }
+  .end .url { font-family: "JetBrains Mono", monospace; font-size: 34px; color: #d4af6a; letter-spacing: .06em; }
+  .wave { position: absolute; left: 70px; right: 70px; height: 40px; display: flex; gap: 6px; align-items: flex-end; }
+  .wave b { flex: 1; background: rgba(212,175,106,.35); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="chip" id="chip"><i></i>VIRA STUDIO · SISTEMAS E IA</div>
+  <div id="panel"></div>
+  <div class="head" id="head">
+    <h1><span id="l1"></span><span class="g" id="l2"></span></h1>
+    <p id="sub"></p>
+  </div>
+  <div class="end" id="end"><img src="/_next/static/media/vira-symbol.1928fd35.webp" alt=""><span class="url">virastudio.uk</span></div>
+  <div class="wave" id="wave"></div>
+</div>
+<script>window.__VIRA_HUD_CAPTURE__ = true;</script>
+<script src="vira-hud.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var ratio = q.get('ratio') || '9x16';
+  var W = 1080, H = ratio === '4x5' ? 1350 : 1920;
+  var DURATION = 11;
+  var L = ratio === '4x5'
+    ? { chip: 56, panel: [150, 640], head: 840, fs: 78, sub: 24, end: 1160, wave: 1262 }
+    : { chip: 110, panel: [230, 940], head: 1250, fs: 84, sub: 30, end: 1640, wave: 1800 };
+
+  var stage = document.getElementById('stage');
+  stage.style.width = W + 'px'; stage.style.height = H + 'px';
+  document.getElementById('chip').style.top = L.chip + 'px';
+  var pn = document.getElementById('panel');
+  pn.style.top = L.panel[0] + 'px'; pn.style.width = L.panel[1] + 'px'; pn.style.height = L.panel[1] + 'px';
+  var head = document.getElementById('head'); head.style.top = L.head + 'px';
+  head.querySelector('h1').style.fontSize = L.fs + 'px';
+  var sub = document.getElementById('sub'); sub.style.fontSize = L.sub + 'px';
+  var end = document.getElementById('end'); end.style.top = L.end + 'px';
+  var wave = document.getElementById('wave'); wave.style.top = L.wave + 'px';
+  var bars = [];
+  for (var i = 0; i < 48; i++) { var b = document.createElement('b'); wave.appendChild(b); bars.push(b); }
+
+  var panel = ViraHUD.createPanel(pn);
+  var T1 = 'SUA OPERAÇÃO,', T2 = 'COM INTELIGÊNCIA.', S = 'Da marca ao sistema.';
+  var GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/<>_';
+
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function seg(t, a, b) { return clamp((t - a) / (b - a)); }
+  function out(p) { return 1 - Math.pow(1 - p, 3); }
+  function rnd(n) { var x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); }
+  function scramble(txt, p, t, salt) {
+    var s = '';
+    for (var i = 0; i < txt.length; i++) {
+      var c = txt[i];
+      if (c === ' ' || c === ',' || c === '.') { s += (i / txt.length) < p * 1.15 ? c : ' '; continue; }
+      var d = (i / txt.length), q = p * 1.18;
+      if (d < q - 0.18) s += c;
+      else if (d < q) s += GLYPHS[Math.floor(rnd(Math.floor(t * 24) + i * 7 + salt) * GLYPHS.length)];
+      else s += ' ';
+    }
+    return s;
+  }
+
+  function render(t) {
+    var chip = document.getElementById('chip');
+    chip.style.opacity = out(seg(t, 0.1, 0.6));
+    panel.render(Math.min(t, 9.0) + (t > 9 ? (t - 9) : 0), 'once');
+    pn.style.opacity = 1;
+    document.getElementById('l1').textContent = scramble(T1, seg(t, 6.0, 7.0), t, 1);
+    document.getElementById('l2').textContent = scramble(T2, seg(t, 6.6, 7.8), t, 2);
+    var sp = seg(t, 8.0, 8.8);
+    sub.textContent = S.slice(0, Math.round(S.length * sp));
+    end.style.opacity = out(seg(t, 8.8, 9.5));
+    end.style.transform = 'translateY(' + (20 * (1 - out(seg(t, 8.8, 9.5)))) + 'px)';
+    bars.forEach(function (b, i) {
+      var v = 0.15 + 0.85 * Math.abs(Math.sin(t * 3.1 + i * 0.55) * Math.sin(t * 1.7 + i * 0.21));
+      b.style.height = (6 + 34 * v * out(seg(t, 0.3, 1.2))) + 'px';
+    });
+  }
+  window.__duration = DURATION;
+  window.__render = render;
+  window.__size = [W, H];
+  if (!q.has('capture')) {
+    var st = null;
+    (function f(now) { if (st === null) st = now; render(((now - st) / 1000) % DURATION); requestAnimationFrame(f); })(performance.now());
+  } else { render(0); }
+})();
+</script>
+</body>
+</html>
