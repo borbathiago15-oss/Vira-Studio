@@ -4,7 +4,7 @@ Site do VIRA Studio publicado no Cloudflare Worker `solitary-cell-a1f1`.
 
 ## Como publicar
 Todo push na branch configurada na Cloudflare (Workers Builds) publica sozinho:
-- Diretório raiz: `site`
+- Diretório raiz: `/` (raiz do repositório — a config fica em `/wrangler.jsonc`, apontando para `site/public`)
 - Comando de build: (vazio)
 - Comando de deploy: `npx wrangler deploy`
 

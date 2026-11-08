@@ -1,0 +1,12 @@
+{
+  // Publicação do site virastudio.uk (Cloudflare Workers Builds).
+  // A Cloudflare roda "npx wrangler deploy" na raiz do repositório;
+  // o site pronto fica em site/public. A pasta social/ não é publicada.
+  "name": "solitary-cell-a1f1",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site/public",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
