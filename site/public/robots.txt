@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://virastudio.uk
+Sitemap: https://virastudio.uk/sitemap.xml

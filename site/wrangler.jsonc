@@ -1,0 +1,11 @@
+{
+  // Site virastudio.uk — Worker só de arquivos estáticos.
+  // O nome precisa ser o do Worker que já atende o domínio.
+  "name": "solitary-cell-a1f1",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
