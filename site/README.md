@@ -26,3 +26,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 
 ## Histórico
 - 08/11/2026 — e-mail thiago@virastudio.uk, Instagram @virastudiobr, Home em camadas.
+- 08/11/2026 — deploy automático ligado (Workers Builds, raiz `site`).
