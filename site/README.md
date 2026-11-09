@@ -33,3 +33,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 - 08/11/2026 — deploy automático ligado (Workers Builds, raiz `site`).
 - 08/11/2026 — Home reordenada (Soluções → Cases → Como construímos → Tecnologia → Investimento → Dúvidas → Contato); saem Manifesto, Como pensamos e Sobre (seguem em /processo e /sobre). Empilhamento só nas 4 etapas.
 - 08/11/2026 — Animação HUD no topo (substitui a parede de projetos) e em Tecnologia + IA; vídeos Reels/LinkedIn gerados do mesmo código.
+- 08/11/2026 — og-image.jpg recriada no estilo HUD (a cópia do site no ar não tinha trazido a imagem); HSTS ligado.
