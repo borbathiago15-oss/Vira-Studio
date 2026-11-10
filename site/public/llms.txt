@@ -17,8 +17,6 @@ Estúdio brasileiro que cria sistemas com inteligência artificial aplicada à o
 ## Cases
 - [Amanda Terra Psicologia | VIRA WEB](https://virastudio.uk/cases/amanda-terra/): Site de psicologia online com conteúdos autorais, pré-triagem pelo WhatsApp e uma jornada pensada para reduzir a ansiedade de quem decide começar.
 - [Camila Luz Arquitetura & Interiores | VIRA WEB](https://virastudio.uk/cases/camila-luz/): Site profissional com arquitetura de informação, posicionamento visual, apresentação de serviços, método de trabalho e caminho claro de conversão.
-- [Gestão de Facilities | VIRA DIGITAL](https://virastudio.uk/cases/gestao-facilities/): Sistema web e aplicativo de campo para operações de limpeza, portaria e manutenção: chamados, rotinas por local, checklists com QR Code, passagem de turno e materiais.
-- [Gestão de Suprimentos | VIRA DIGITAL](https://virastudio.uk/cases/gestao-suprimentos/): Sistema de suprimentos em operação: da solicitação ao recebimento, com alçadas, cotação, ordem de compra, estoque e um modo TV para a equipe de compras.
 - [Inteligência Operacional | VIRA DIGITAL](https://virastudio.uk/cases/inteligencia-operacional/): Plataforma de inteligência operacional para um operador logístico com dezenas de contratos: SLA, financeiro, plano de ação e auditoria no mesmo ambiente.
 - [NEXO | VIRA DIGITAL](https://virastudio.uk/cases/nexo/): Aplicativo autoral do estúdio que junta contas, compromissos, saúde e pendências num só lugar, com o Ori, um secretário pessoal que prepara e só registra com a sua confirmação.
 - [Thaís Lucena Psicologia | VIRA WEB](https://virastudio.uk/cases/thais-lucena/): Presença digital para atendimento em psicologia, com organização de informações, jornada de atendimento clara e conversão direta.

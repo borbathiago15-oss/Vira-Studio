@@ -62,7 +62,32 @@
     if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
   }
 
+  // Barra fixa de WhatsApp no celular: aparece depois do topo, some perto do formulário
+  var WA = 'https://wa.me/5581979128073?text=' + encodeURIComponent('Olá, Thiago! Vim pelo site da VIRA Studio e quero conversar sobre um projeto.');
+  function waBar() {
+    if (document.querySelector('.v3-wa')) return;
+    var a = document.createElement('a');
+    a.className = 'v3-wa'; a.href = WA; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.setAttribute('data-cta', 'barra-whatsapp');
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Conversar no WhatsApp';
+    document.body.appendChild(a);
+    var tick = false;
+    function upd() {
+      tick = false;
+      var form = document.querySelector('#contato form, form[class*="ProjectForm"]');
+      var nearForm = form && form.getBoundingClientRect().top < window.innerHeight && form.getBoundingClientRect().bottom > 0;
+      a.classList.toggle('on', window.scrollY > window.innerHeight * 0.6 && !nearForm);
+    }
+    window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+
   function boot() {
+    (function tryWa(n) {
+      var main = document.getElementById('conteudo');
+      if (main && !hydrated(main) && n < 100) return setTimeout(function () { tryWa(n + 1); }, 100);
+      waBar();
+    })(0);
     scan();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);

@@ -1,0 +1,57 @@
+/* VIRA Studio · seções de venda (Quem constrói, Da dor ao sistema) — mobile first */
+#da-dor-ao-sistema, #quem-constroi { --v3-gold:#d4af6a; --v3-gold-ink:#8a6a2f; font-family: var(--font-body, Montserrat), system-ui, sans-serif; }
+.v3-wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter, 20px); }
+#da-dor-ao-sistema, #quem-constroi { padding: 72px 0; position: relative; }
+.v3-kicker { margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--v3-gold); }
+.v3-h2 { margin: 0; font-family: var(--font-display, Montserrat), system-ui, sans-serif; font-size: clamp(32px, 6.4vw, 56px); line-height: 1.02; font-weight: 800; letter-spacing: -.02em; text-transform: none; }
+.v3-h2 em { font-style: normal; color: var(--v3-gold); }
+.v3-lead { margin: 20px 0 0; max-width: 56ch; font-size: 18px; line-height: 1.6; color: #d6d6db; }
+
+/* Quem constrói */
+.v3-who { background: linear-gradient(180deg, #0d0d0f, #121215); color: #f5f5f5; }
+.v3-who-grid { display: grid; gap: 28px; }
+.v3-photo { position: relative; margin: 0; max-width: 440px; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; background: #141417; }
+.v3-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.v3-photo figcaption { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 14px 16px; border-radius: 14px; background: rgba(13,13,15,.78); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-size: 14px; line-height: 1.4; }
+.v3-photo figcaption b { display: block; font-size: 17px; }
+.v3-photo figcaption span { color: #a3a3a9; }
+.v3-creds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 28px 0 0; padding: 0; list-style: none; }
+.v3-creds li { padding: 14px; border-radius: 14px; background: #151518; border: 1px solid rgba(255,255,255,.06); font-size: 14px; line-height: 1.35; color: #a3a3a9; }
+.v3-creds li b { display: block; margin-bottom: 2px; font-size: 16px; color: #f5f5f5; }
+.v3-quote { margin: 28px 0 0; padding: 0 0 0 18px; border-left: 3px solid var(--v3-gold); font-size: 19px; line-height: 1.5; font-weight: 600; }
+
+/* Da dor ao sistema */
+.v3-case { background: #f3f1ec; color: #141416; }
+.v3-case .v3-kicker, .v3-case .v3-h2 em { color: var(--v3-gold-ink); }
+.v3-case .v3-h2 { color: #141416; }
+.v3-case .v3-lead { color: #3b3b42; }
+.v3-ba { display: grid; gap: 16px; margin-top: 36px; }
+.v3-col { border-radius: 22px; padding: 24px 20px; }
+.v3-col h3 { margin: 0 0 16px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.v3-col ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.v3-col li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; font-size: 16.5px; line-height: 1.45; }
+.v3-before { background: #fff; border: 1px solid #e3ded3; }
+.v3-before h3 { color: #a8463b; }
+.v3-before li { color: #4a4a52; }
+.v3-before li::before { content: "✕"; color: #c4574b; font-weight: 800; text-align: center; }
+.v3-after { background: #141416; color: #f5f5f5; }
+.v3-after h3 { color: var(--v3-gold); }
+.v3-after li::before { content: "✓"; color: var(--v3-gold); font-weight: 800; text-align: center; }
+.v3-arrow { justify-self: center; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--v3-gold); color: #141416; font-weight: 900; font-size: 20px; transform: rotate(90deg); }
+.v3-punch { margin: 28px 0 0; font-size: clamp(22px, 4.4vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
+.v3-punch span { color: var(--v3-gold-ink); }
+.v3-note { margin: 12px 0 0; font-size: 13px; color: #6b6b73; }
+.v3-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.v3-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 14px 22px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; }
+.v3-btn-gold { background: var(--v3-gold); color: #141416; }
+.v3-btn-ghost { border: 1.5px solid #141416; color: #141416; }
+.v3-btn:focus-visible { outline: 2px solid #141416; outline-offset: 3px; }
+
+@media (min-width: 900px) {
+  #da-dor-ao-sistema, #quem-constroi { padding: 112px 0; }
+  .v3-who-grid { grid-template-columns: 440px 1fr; gap: 64px; align-items: center; }
+  .v3-ba { grid-template-columns: 1fr 64px 1fr; align-items: stretch; }
+  .v3-arrow { align-self: center; transform: none; }
+  .v3-col { padding: 32px; }
+}
+

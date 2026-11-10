@@ -18,6 +18,8 @@ Todo push na branch configurada na Cloudflare (Workers Builds) publica sozinho:
 | `public/vira-hud.js` | Animação HUD (SVG, linha do tempo determinística): topo da Home ("sistema") e Tecnologia + IA ("ia"). |
 | `tools/hud-video.html` + `tools/render.py` | Gera os vídeos MP4 da mesma animação (9:16 e 4:5), quadro a quadro. |
 | `tools/seo.py` | og:image/twitter em todas as páginas, sitemap com data, llms.txt gerado das páginas reais. Rodar por último. |
+| `tools/remove_cases.py` | Tira cases do site inteiro (páginas, vitrine, grade, links, imagens, sitemap) sem quebrar a hidratação. |
+| `tools/add_sections.py` + `public/vira-v3.css` | Seções de venda da Home: Da dor ao sistema e Quem constrói. |
 | `tools/flight.py` | Leitura/escrita do payload do React (RSC) usado pelos dois scripts. |
 | `wrangler.jsonc` | Configuração do Worker. |
 
@@ -36,3 +38,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 - 08/11/2026 — Animação HUD no topo (substitui a parede de projetos) e em Tecnologia + IA; vídeos Reels/LinkedIn gerados do mesmo código.
 - 08/11/2026 — og-image.jpg recriada no estilo HUD (a cópia do site no ar não tinha trazido a imagem); HSTS ligado.
 - 09/11/2026 — SEO: llms.txt, sitemap com data atual, og:image em todas as páginas, twitter:title por página; scripts esperam a hidratação do React (corrige erro #418 intermitente na Home).
+- 10/11/2026 — Saem os cases Gestão de Facilities e Gestão de Suprimentos (redirect 301 para /cases/, imagens apagadas). Entram na Home 'Da dor ao sistema' (logo após o topo) e 'Quem constrói' (com foto); barra fixa de WhatsApp no celular; tabela de Investimento rola no celular.

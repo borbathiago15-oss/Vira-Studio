@@ -192,3 +192,24 @@ html[data-vira-hero] .HeroWall_wall__tv_m9 { display: none; }
     margin: 40px auto 0;
   }
 }
+
+/* ---------- Barra fixa de WhatsApp (só celular) ---------- */
+.v3-wa { display: none; }
+@media (max-width: 860px) {
+  .v3-wa {
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 95;
+    display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px;
+    border-radius: 14px; background: #d4af6a; color: #141416; font-weight: 800; font-size: 15px; text-decoration: none;
+    box-shadow: 0 10px 30px -8px rgba(0,0,0,.6);
+    transform: translateY(140%); transition: transform 300ms cubic-bezier(.22,.61,.36,1);
+  }
+  .v3-wa.on { transform: none; }
+  .v3-wa svg { width: 20px; height: 20px; }
+  body { padding-bottom: 76px; }
+}
+
+/* Tabela Necessidade × Solução: rolagem horizontal em vez de cortar */
+@media (max-width: 860px) {
+  .Investment_tableWrap__P4dXq { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .Investment_table__1WmK0 { min-width: 560px; }
+}
