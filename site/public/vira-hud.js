@@ -239,11 +239,26 @@
     });
   }
 
+  // O React precisa terminar a hidratação antes de inserirmos nós no DOM dele;
+  // senão ele acusa diferença de HTML (#418) e redesenha a página.
+  function hydrated(n) {
+    if (!n) return false;
+    for (var k in n) if (k.indexOf('__reactFiber') === 0 || k.indexOf('__reactProps') === 0) return true;
+    return false;
+  }
+  var retry = 0;
+
   // ---------- site: insere os painéis na Home (topo e Tecnologia + IA)
   function siteMount() {
     var p = location.pathname;
     if (p !== '/' && p !== '/index.html') { document.documentElement.removeAttribute('data-vira-hero'); return; }
     var hero = document.querySelector('section.Hero_hero__MpeZv');
+    var tecC = document.querySelector('#tecnologia .container');
+    if ((hero && !hydrated(hero)) || (tecC && !hydrated(tecC))) {
+      if (retry++ < 100) setTimeout(siteMount, 100);
+      return;
+    }
+    retry = 0;
     if (hero && !hero.querySelector('[data-vira-hud]')) {
       var h = document.createElement('div');
       h.className = 'vh-host vh-hero';

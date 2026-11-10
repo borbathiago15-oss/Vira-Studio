@@ -12,7 +12,18 @@
 
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
+  function hydrated(n) {
+    for (var k in n) if (k.indexOf('__reactFiber') === 0 || k.indexOf('__reactProps') === 0) return true;
+    return false;
+  }
+  var retry = 0;
+
   function scan() {
+    var pending = Array.prototype.some.call(document.querySelectorAll(SELECTOR), function (ol) {
+      return !ol.hasAttribute('data-vs-deck') && !hydrated(ol);
+    });
+    if (pending) { if (retry++ < 100) setTimeout(scan, 100); return; }
+    retry = 0;
     decks = decks.filter(function (d) { return document.contains(d.el); });
     var lists = document.querySelectorAll(SELECTOR);
     for (var i = 0; i < lists.length; i++) {

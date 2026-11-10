@@ -13,7 +13,7 @@ OLD_MAIL = 'virastudiocontato@gmail.com'
 NEW_MAIL = 'thiago@virastudio.uk'
 IG_URL = 'https://www.instagram.com/virastudiobr'
 IG_HANDLE = '@virastudiobr'
-VERSION = '20261108c'
+VERSION = '20261109'
 
 report = {}
 

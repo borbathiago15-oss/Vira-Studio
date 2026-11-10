@@ -17,6 +17,7 @@ Todo push na branch configurada na Cloudflare (Workers Builds) publica sozinho:
 | `tools/home.py` | Reordena a Home (HTML + payload do React juntos). Rodar depois do patch.py. |
 | `public/vira-hud.js` | Animação HUD (SVG, linha do tempo determinística): topo da Home ("sistema") e Tecnologia + IA ("ia"). |
 | `tools/hud-video.html` + `tools/render.py` | Gera os vídeos MP4 da mesma animação (9:16 e 4:5), quadro a quadro. |
+| `tools/seo.py` | og:image/twitter em todas as páginas, sitemap com data, llms.txt gerado das páginas reais. Rodar por último. |
 | `tools/flight.py` | Leitura/escrita do payload do React (RSC) usado pelos dois scripts. |
 | `wrangler.jsonc` | Configuração do Worker. |
 
@@ -34,3 +35,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 - 08/11/2026 — Home reordenada (Soluções → Cases → Como construímos → Tecnologia → Investimento → Dúvidas → Contato); saem Manifesto, Como pensamos e Sobre (seguem em /processo e /sobre). Empilhamento só nas 4 etapas.
 - 08/11/2026 — Animação HUD no topo (substitui a parede de projetos) e em Tecnologia + IA; vídeos Reels/LinkedIn gerados do mesmo código.
 - 08/11/2026 — og-image.jpg recriada no estilo HUD (a cópia do site no ar não tinha trazido a imagem); HSTS ligado.
+- 09/11/2026 — SEO: llms.txt, sitemap com data atual, og:image em todas as páginas, twitter:title por página; scripts esperam a hidratação do React (corrige erro #418 intermitente na Home).
