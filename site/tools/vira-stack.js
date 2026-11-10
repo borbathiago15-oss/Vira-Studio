@@ -24,6 +24,7 @@
     });
     if (pending) { if (retry++ < 100) setTimeout(scan, 100); return; }
     retry = 0;
+    collapsibles();
     decks = decks.filter(function (d) { return document.contains(d.el); });
     var lists = document.querySelectorAll(SELECTOR);
     for (var i = 0; i < lists.length; i++) {
@@ -82,11 +83,34 @@
     upd();
   }
 
+  // Investimento no celular: escopo recolhido atrás de "Ver o que está incluso"
+  function collapsibles() {
+    var lists = document.querySelectorAll('#investimento .Investment_scopeList__rYUeq, #investimento .Investment_tiers__91fbw');
+    Array.prototype.forEach.call(lists, function (ul, n) {
+      if (ul.hasAttribute('data-v3c')) return;
+      ul.setAttribute('data-v3c', '');
+      if (!ul.id) ul.id = 'v3-escopo-' + n;
+      ul.classList.add('v3-collapsed');
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'v3-more';
+      b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', ul.id);
+      b.textContent = 'Ver o que está incluso';
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') !== 'true';
+        b.setAttribute('aria-expanded', String(open));
+        ul.classList.toggle('v3-collapsed', !open);
+        b.textContent = open ? 'Fechar' : 'Ver o que está incluso';
+      });
+      ul.parentNode.insertBefore(b, ul);
+    });
+  }
+
   function boot() {
     (function tryWa(n) {
       var main = document.getElementById('conteudo');
       if (main && !hydrated(main) && n < 100) return setTimeout(function () { tryWa(n + 1); }, 100);
       waBar();
+      collapsibles();
     })(0);
     scan();
     window.addEventListener('scroll', onScroll, { passive: true });

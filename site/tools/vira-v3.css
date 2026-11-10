@@ -55,3 +55,24 @@
   .v3-col { padding: 32px; }
 }
 
+
+/* ---------- Home enxuta no celular: menos repetição, detalhes sob demanda ---------- */
+.v3-more { display: none; }
+@media (max-width: 860px) {
+  /* Soluções: os preços e o escopo detalhado já estão em Investimento */
+  #solucoes .Solutions_features__jdsyQ,
+  #solucoes .Solutions_bridgeBody__wKs1C { display: none; }
+  /* Investimento: a tabela repete Soluções; escopo vira "ver o que está incluso" */
+  #investimento .Investment_tableWrap__P4dXq,
+  #investimento .Investment_comparisonTitle__TXA6r,
+  #investimento .Investment_comparisonNote__RUoij { display: none; }
+  #investimento .v3-collapsed { display: none; }
+  .v3-more {
+    display: inline-flex; align-items: center; gap: 8px; margin: 4px 0 8px; padding: 10px 0;
+    background: none; border: 0; color: #d4af6a; font: 700 14px/1.2 var(--font-body, Montserrat), sans-serif; cursor: pointer;
+  }
+  .v3-more::after { content: "+"; font-size: 18px; line-height: 1; }
+  .v3-more[aria-expanded="true"]::after { content: "–"; }
+  /* Tecnologia: frases genéricas fora no celular */
+  #tecnologia .TechAI_messages__TKyFz { display: none; }
+}

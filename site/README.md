@@ -39,3 +39,4 @@ Próximo passo recomendado: reconstruir o fonte Next aqui em `site/src` e trocar
 - 08/11/2026 — og-image.jpg recriada no estilo HUD (a cópia do site no ar não tinha trazido a imagem); HSTS ligado.
 - 09/11/2026 — SEO: llms.txt, sitemap com data atual, og:image em todas as páginas, twitter:title por página; scripts esperam a hidratação do React (corrige erro #418 intermitente na Home).
 - 10/11/2026 — Saem os cases Gestão de Facilities e Gestão de Suprimentos (redirect 301 para /cases/, imagens apagadas). Entram na Home 'Da dor ao sistema' (logo após o topo) e 'Quem constrói' (com foto); barra fixa de WhatsApp no celular; tabela de Investimento rola no celular.
+- 10/11/2026 — Celular: Soluções sem chips e texto-ponte, Investimento sem a tabela repetida e com escopo recolhido em 'Ver o que está incluso', Tecnologia sem as frases genéricas (Home de 26,6 para 23,7 telas).
